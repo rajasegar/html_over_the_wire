@@ -1,9 +1,10 @@
 dependencies:
+  body-parser: 1.19.0
   express: 4.17.1
   pug: 3.0.2
 devDependencies:
   nodemon: 2.0.7
-lockfileVersion: 5.2
+lockfileVersion: 5.1
 packages:
   /@babel/helper-validator-identifier/7.12.11:
     dev: false
@@ -1488,6 +1489,7 @@ packages:
     resolution:
       integrity: sha512-PSNhEJDejZYV7h50BohL09Er9VaIefr2LMAf3OEmpCkjOi34eYyQYAXUTjEQtZJTKcF0E2UKTh+osDLsgNim9Q==
 specifiers:
+  body-parser: ^1.19.0
   express: ^4.17.1
   nodemon: ^2.0.7
   pug: ^3.0.2

@@ -22,7 +22,7 @@ module.exports = [
     extendable: false,
     dependencyFree: false,
     ie11: false,
-    compilation: true,
+    nocompilation: false,
     cdn: false
   },
   {
@@ -49,7 +49,7 @@ module.exports = [
     extendable: false,
     dependencyFree: false,
     ie11: false,
-    compilation: true,
+    nocompilation: false,
     cdn: false
   },
   {
@@ -75,7 +75,7 @@ module.exports = [
     extendable: false,
     dependencyFree: false,
     ie11: false,
-    compilation: true,
+    nocompilation: false,
     cdn: false
   },
   {
@@ -101,7 +101,7 @@ We extend the capabilities of both Django and Stimulus by intercepting user inte
     extendable: false,
     dependencyFree: false,
     ie11: false,
-    compilation: true,
+    nocompilation: false,
     cdn: false
   },
   {
@@ -129,7 +129,7 @@ htmx is small (~10k min.gz'd), dependency-free, extendable & IE11 compatible
     extendable: true,
     dependencyFree: true,
     ie11: true,
-    compilation: false,
+    nocompilation: true,
     cdn: true
   },
   {
@@ -146,17 +146,17 @@ It has no dependencies and plays nice with existing code.`,
       issues: 20,
       url: 'https://github.com/unpoly/unpoly'
     },
-    language: 'Ruby',
+    language: 'CoffeeScript',
     ajax: true,
     history: true,
     animation: true,
     websockets: false,
     sse: false,
-    agnostic: false,
-    extendable: false,
-    dependencyFree: false,
+    agnostic: true,
+    extendable: true,
+    dependencyFree: true,
     ie11: false,
-    compilation: false,
+    nocompilation: true,
     cdn: true
   },
 ];
