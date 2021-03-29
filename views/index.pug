@@ -34,7 +34,7 @@ block body
       each lib in data
         tr
           td 
-            a(href=lib.website) #{lib.name}
+            a(href=lib.website, target="_blank") #{lib.name}
           td #{lib.github.stars}
           td #{lib.github.forks}
           td #{lib.language}

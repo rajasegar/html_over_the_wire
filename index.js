@@ -8,10 +8,23 @@ const app = express();
 
 app.set('view engine', 'pug');
 
+app.get('/compare', (req, res) => {
+  const { lib1, lib2 } = req.query;
+  const left = data.find(d => d.id === lib1);
+  const right = data.find(d => d.id === lib2);
+  res.render('compare', { left, right });
+});
+
 app.get('/:id', (req, res) => {
   const { id } = req.params;
   const lib = data.find(d => d.id === id);
-  res.render('detail-page', { data: lib });
+  const others = data.filter(d => d.id !== id).map(d => {
+    return {
+      id: d.id,
+      name: d.name
+    };
+  });
+  res.render('detail-page', { data: lib, others });
 });
 
 app.get('/', (req, res) => {

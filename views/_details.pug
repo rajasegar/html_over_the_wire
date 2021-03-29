@@ -1,17 +1,38 @@
 include _mixins
-h1 #{data.name}
+.d-flex.justify-content-between.mt-3
+  h1 #{data.name}
+  .d-flex
+    .ms-2
+      .btn-group.btn-group-sm(role="group" aria-label="Basic outlined example")
+        button.btn.btn-outline-dark(type="button") 
+          +icon-star()
+          |  Stars
+        button.btn.btn-dark(type="button") #{data.github.stars}
+    .ms-2
+      .btn-group.btn-group-sm(role="group" aria-label="Basic outlined example")
+        button.btn.btn-outline-dark(type="button") 
+          +icon-fork()
+          |  Forks
+        button.btn.btn-dark(type="button") #{data.github.forks}
+    .ms-2
+      .btn-group.btn-group-sm(role="group" aria-label="Basic outlined example")
+        button.btn.btn-outline-dark(type="button") 
+          +icon-issues()
+          |  Issues
+        button.btn.btn-dark(type="button") #{data.github.issues}
+  .dropdown
+    button.btn.btn-primary.dropdown-toggle(type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false")
+      | Compare with
+    ul.dropdown-menu(aria-labelledby="dropdownMenuButton1")
+      each lib in others
+        li
+          a.dropdown-item(href="/compare?lib1=" + data.id + '&lib2=' +  lib.id) #{lib.name}
 p
   | #{data.description}
 p 
   a(href=data.website) Website
 p 
   a(href=data.github.url) Github
-p 
-  | Github stars: #{data.github.stars}
-p 
-  | Github forks: #{data.github.forks}
-p 
-  | Github issues: #{data.github.issues}
 p 
   | Language: #{data.language}
 p 
