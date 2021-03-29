@@ -1,0 +1,49 @@
+include _mixins
+h1 #{data.name}
+p
+  | #{data.description}
+p 
+  a(href=data.website) Website
+p 
+  a(href=data.github.url) Github
+p 
+  | Github stars: #{data.github.stars}
+p 
+  | Github forks: #{data.github.forks}
+p 
+  | Github issues: #{data.github.issues}
+p 
+  | Language: #{data.language}
+p 
+  | AJAX: 
+  +yesno(data.ajax)
+p 
+  | History API: 
+  +yesno(data.history)
+p 
+  | Animation: 
+  +yesno(data.animation)
+p 
+  | Web Sockets: 
+  +yesno(data.websockets)
+p 
+  | Server Sent Events: 
+  +yesno(data.sse)
+p 
+  | Language or Framework Agnostic: 
+  +yesno(data.agnostic)
+p 
+  | Extendable: 
+  +yesno(data.extendable)
+p 
+  | Dependency Free: 
+  +yesno(data.dependencyFree)
+p 
+  | IE 11 Compatible: 
+  +yesno(data.ie11)
+p 
+  | Compilation:
+  +yesno(data.compilation)
+p 
+  | CDN: 
+  +yesno(data.cdn)
