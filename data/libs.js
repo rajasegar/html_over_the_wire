@@ -145,7 +145,13 @@ htmx is small (~10k min.gz'd), dependency-free, extendable & IE11 compatible
     nocompilation: true,
     cdn: true,
     frameworks: ['all','Django', 'RAILS','Phoenix', 'Laravel', 'Node'],
-    features: []
+    features: [
+      'Htmx is a library that allows you to access modern browser features directly from HTML, rather than using javascript.',
+      'Htmx extends and generalizes the core idea of HTML as a hypertext, opening up many more possibilities directly within the language',
+      'Any element, not just anchors and forms, can issue an HTTP request',
+      'Any event, not just clicks or form submissions, can trigger requests',
+      'Any element, not just the entire window, can be the target for update by the request'
+    ]
   },
   {
     id: 'unpoly',
