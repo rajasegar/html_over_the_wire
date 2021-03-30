@@ -24,7 +24,8 @@ module.exports = [
     ie11: false,
     nocompilation: false,
     cdn: false,
-    frameworks: ['RAILS']
+    frameworks: ['RAILS'],
+    features:[ ]
   },
   {
     id: 'liveview',
@@ -52,7 +53,8 @@ module.exports = [
     ie11: false,
     nocompilation: false,
     cdn: false,
-    frameworks: ['Phoenix']
+    frameworks: ['Phoenix'],
+    features: []
   },
   {
     id: 'livewire',
@@ -79,7 +81,8 @@ module.exports = [
     ie11: false,
     nocompilation: false,
     cdn: false,
-    frameworks: ['Laravel']
+    frameworks: ['Laravel'],
+    features: []
   },
   {
     id: 'sockpuppet',
@@ -106,7 +109,13 @@ We extend the capabilities of both Django and Stimulus by intercepting user inte
     ie11: false,
     nocompilation: false,
     cdn: false,
-    frameworks: ['Django']
+    frameworks: ['Django'],
+    features: [
+      'Enable small teams to do big things, faster 🏃🏽‍♀️',
+      'Increase developer happiness ❤️❤️❤️',
+      'Facilitate simple, concise, and clear code 🤸',
+      'Integrate seamlessly with Django 🚝'
+    ]
   },
   {
     id: 'htmx',
@@ -135,7 +144,8 @@ htmx is small (~10k min.gz'd), dependency-free, extendable & IE11 compatible
     ie11: true,
     nocompilation: true,
     cdn: true,
-    frameworks: ['all','Django', 'RAILS','Phoenix', 'Laravel', 'Node']
+    frameworks: ['all','Django', 'RAILS','Phoenix', 'Laravel', 'Node'],
+    features: []
   },
   {
     id: 'unpoly',
@@ -163,7 +173,19 @@ It has no dependencies and plays nice with existing code.`,
     ie11: false,
     nocompilation: true,
     cdn: true,
-    frameworks: ['all','Django', 'RAILS','Phoenix', 'Laravel', 'Node']
+    frameworks: ['all','Django', 'RAILS','Phoenix', 'Laravel', 'Node'],
+    features: [
+      'Smoother navigation: Unpoly links can update page fragments instead of full pages. No JavaScript required.',
+      'Branch off into layers: Branch off interactions into modals, popups or drawers. Return to the main page when you\'re done.',
+      'Animation: Animate page changes with fade, swipe or zoom transitions.',
+      'Faster response times: Outsmart latency by preloading pages, following links earlier, caching responses and keeping a persistent CSS / JS environment.',
+      'Structure for JavaScript snippets: Organize your frontend code in compilers and let Unpoly pair HTML elements with JavaScript behavior.',
+      'Better forms: Submit forms via AJAX. Work with forms within modals. Validate forms against server rules while filling in fields.',
+      'Plays nice with existing code: Migrate any server-side web application with minimal changes to existing code.',
+      'Extensible: Build your own components using Unpoly\'s extensive Javascript API and event model.',
+      'Degrades gracefully: Unpoly supports all modern browsers. On old IEs features are disabled gracefully.'
+
+    ]
   },
   {
     id: 'reactor',
@@ -189,6 +211,7 @@ It has no dependencies and plays nice with existing code.`,
     ie11: false,
     nocompilation: false,
     cdn: false,
-    frameworks: ['Django']
+    frameworks: ['Django'],
+    features: []
   }
 ];

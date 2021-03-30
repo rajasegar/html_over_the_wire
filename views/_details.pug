@@ -29,6 +29,10 @@ include _mixins
           a.dropdown-item(href="/compare?lib1=" + data.id + '&lib2=' +  lib.id) #{lib.name}
 p
   | #{data.description}
+p Features:
+ul
+  each feature in data.features
+    li= feature
 p 
   a(href=data.website) Website
 p 

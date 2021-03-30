@@ -1,8 +1,11 @@
 extends layout
+include _mixins
 block body
   h2.mt-4.mb-3 Comparison of different frameworks
 
-  button.btn.btn-primary(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight') Filter
+  button.btn.btn-primary(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight') 
+    +icon-funnel()
+    |  Filter
   include _clear-button
   include _filter
   

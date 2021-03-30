@@ -44,7 +44,9 @@ app.post('/filter', (req, res) => {
     cdn,
     websockets,
     dependencyFree,
-    frameworks
+    frameworks,
+    history,
+    animation
   } = req.body;
 
   let filteredData = data;
@@ -54,6 +56,8 @@ app.post('/filter', (req, res) => {
   }
 
   filteredData = filterBy('sse', sse, filteredData);
+  filteredData = filterBy('history', history, filteredData);
+  filteredData = filterBy('animation', animation, filteredData);
   filteredData = filterBy('agnostic', agnostic, filteredData);
   filteredData = filterBy('extendable', extendable, filteredData);
   filteredData = filterBy('ie11', ie11, filteredData);

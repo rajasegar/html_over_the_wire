@@ -3,17 +3,17 @@
     h5#offcanvasRightLabel Filter
     button.btn-close.text-reset(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
   .offcanvas-body
-    form()
+    form(
+        hx-post="/filter",
+        hx-target="#results"
+        hx-indicator="#indicator"
+        _="on htmx:afterOnLoad remove .d-none from #btnClear"
+      )
       .mb-3
         label(for="lstFrameworks") Supported Frameworks / Platforms:
         select#lstFrameworks.form-select(
           aria-label='Language', 
           name="frameworks",
-          hx-post="/filter",
-          hx-trigger="change",
-          hx-include="[name='frameworks']"
-          hx-target="#results"
-          hx-indicator="#indicator"
           )
           option(value='none') Choose a Framework / Platform
           option(value='all') Framework Agnostic
@@ -22,18 +22,18 @@
           option(value='Laravel') Laravel
           option(value='Django') Django
           option(value='Node') Node
-    each filter in filters
-      .form-check
-        input.form-check-input(
-        id=filter.id,
-        type='checkbox' 
-        name=filter.name 
-        hx-post="/filter" 
-        hx-trigger="click" 
-        hx-include="[name='" + filter.name + "']" 
-        hx-target="#results"
-        hx-indicator="#indicator"
-        )
-        label.form-check-label(for=filter.id)
-          | #{filter.label}
+      .my-3
+        label Features supported:
+      each filter in filters
+        .form-check
+          input.form-check-input(
+          id=filter.id,
+          type='checkbox' 
+          name=filter.name 
+          )
+          label.form-check-label(for=filter.id)
+            | #{filter.label}
+      .mt-3
+        button.btn.btn-danger.ms-2(type="button" data-bs-dismiss="offcanvas") Cancel
+        button.btn.btn-primary.ms-2(type="submit" data-bs-dismiss="offcanvas") Apply Filter
 

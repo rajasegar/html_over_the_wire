@@ -5,6 +5,16 @@ module.exports = [
     label: 'AJAX'
   },
   {
+    id: 'chkAnimation',
+    name: 'animation',
+    label: 'Animation'
+  },
+  {
+    id: 'chkHistory',
+    name: 'history',
+    label: 'History'
+  },
+  {
     id: 'chkSockets',
     name: 'websockets',
     label: 'Web Sockets'

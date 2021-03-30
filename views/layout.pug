@@ -1,11 +1,11 @@
 doctype html
-html(lang="en")
+html.h-100(lang="en")
   head
     title HTML over the wire
     meta(charset="utf8")
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous")
 
-  body(hx-boost="true")
+  body.d-flex.flex-column.h-100(hx-boost="true")
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       .container
         a.navbar-brand(href='/') HTML Over The Wire
@@ -27,11 +27,19 @@ html(lang="en")
               a.nav-link(href='/details/unpoly') Unpoly
             li.nav-item
               a.nav-link(href='/details/reactor') Reactor
-          a.nav-link.text-white(href='https://github.com/rajasegar/html_over_the_wire') Github
+          //-a.nav-link.text-white(href='https://github.com/rajasegar/html_over_the_wire') Github
 
     .container
       block body
+    footer.footer.mt-auto.py-3.bg-light
+      .container
+        .text-center
+          span.text-muted
+            | This website is built with <a href="https://htmx.org">htmx</a> and the code is available on 
+            <a href="https://github.com/rajasegar/html_over_the_wire">Github</a>
+
     script(src="https://unpkg.com/htmx.org@1.3.1")
+    script(src="https://unpkg.com/hyperscript.org@0.0.8")
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous")
     script.
       var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
