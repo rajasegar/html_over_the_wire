@@ -1,5 +1,6 @@
 const express = require('express');
-const data = require('./data');
+const data = require('./data/libs');
+const filters = require('./data/filters');
 const bodyParser = require('body-parser');
 const pug = require('pug');
 
@@ -11,6 +12,10 @@ app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true }));
 
+app.get('/', (req, res) => {
+  res.render('index', { data, filters });
+});
+
 app.get('/compare', (req, res) => {
   const { lib1, lib2 } = req.query;
   const left = data.find(d => d.id === lib1);
@@ -18,38 +23,49 @@ app.get('/compare', (req, res) => {
   res.render('compare', { left, right });
 });
 
+function filterBy(attr, value, data) {
+
+  let _filteredData = data;
+  if(value && value === 'on') {
+    const _val = value ? true : false;
+    _filteredData = data.filter(d => d[attr] === _val);
+  }
+  return _filteredData;
+}
+
 app.post('/filter', (req, res) => {
   console.log(req.body);
-  let { 
+  const { 
     sse, 
     agnostic,
     extendable,
-    ie11
+    ie11,
+    nocompilation,
+    cdn,
+    websockets,
+    dependencyFree,
+    frameworks
   } = req.body;
 
   let filteredData = data;
-  if(sse && sse === 'on') {
-    sse = sse ? true : false;
-    filteredData = data.filter(d => d.sse === sse);
+
+  if(frameworks && frameworks !== 'none') {
+    filteredData = filteredData.filter(f => f.frameworks.includes(frameworks));
   }
 
-  if(agnostic && agnostic === 'on') {
-    agnostic = agnostic ? true : false;
-    filteredData = filteredData.filter(d => d.agnostic === agnostic);
-  }
-
-  if(extendable && extendable === 'on') {
-    extendable = extendable ? true : false;
-    filteredData = filteredData.filter(d => d.extendable === extendable);
-  }
-
-  if(ie11 && ie11 === 'on') {
-    ie11 = ie11 ? true : false;
-    filteredData = filteredData.filter(d => d.ie11 === ie11);
-  }
+  filteredData = filterBy('sse', sse, filteredData);
+  filteredData = filterBy('agnostic', agnostic, filteredData);
+  filteredData = filterBy('extendable', extendable, filteredData);
+  filteredData = filterBy('ie11', ie11, filteredData);
+  filteredData = filterBy('nocompilation', nocompilation, filteredData);
+  filteredData = filterBy('cdn', cdn, filteredData);
+  filteredData = filterBy('websockets', websockets, filteredData);
+  filteredData = filterBy('dependencyFree', dependencyFree, filteredData);
 
   const template = pug.compileFile('views/_results.pug');
-  const markup = template({ data: filteredData });
+  //const clearBtn = pug.compileFile('views/_clear-button.pug');
+  //let markup = clearBtn();
+  let markup = template({ data: filteredData });
   res.send(markup);
 });
 
@@ -65,9 +81,6 @@ app.get('/details/:id', (req, res) => {
   res.render('detail-page', { data: lib, others });
 });
 
-app.get('/', (req, res) => {
-  res.render('index', { data });
-});
 
 
 app.listen(PORT);

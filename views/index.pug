@@ -3,34 +3,9 @@ block body
   h2.mt-4.mb-3 Comparison of different frameworks
 
   button.btn.btn-primary(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight') Filter
-  a.btn.btn-link(href="/") Clear Filters
-  #offcanvasRight.offcanvas.offcanvas-end(tabindex='-1' aria-labelledby='offcanvasRightLabel')
-    .offcanvas-header
-      h5#offcanvasRightLabel Filter
-      button.btn-close.text-reset(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
-    .offcanvas-body
-      form()
-        .form-check
-          input#chkAjax.form-check-input(type='checkbox' name="ajax" hx-post="/filter" hx-trigger="click" hx-include="[name='ajax']" hx-target="#results")
-          label.form-check-label(for='chkAjax')
-            | AJAX
-        .form-check
-          input#chkSSE.form-check-input(type='checkbox'  name="sse" hx-post="/filter" hx-trigger="click" hx-include="[name='sse']" hx-target="#results")
-          label.form-check-label(for='chkSSE')
-            | SSE
-        .form-check
-          input#chkAgnostic.form-check-input(type='checkbox'  name="agnostic" hx-post="/filter" hx-trigger="click" hx-include="[name='agnostic']" hx-target="#results")
-          label.form-check-label(for='chkAgnostic')
-            | Language Agnostic
-        .form-check
-          input#chkExtendable.form-check-input(type='checkbox'  name="extendable" hx-post="/filter" hx-trigger="click" hx-include="[name='extendable']" hx-target="#results")
-          label.form-check-label(for='chkExtendable')
-            | Extendable
-        .form-check
-          input#chkIE11.form-check-input(type='checkbox'  name="ie11" hx-post="/filter" hx-trigger="click" hx-include="[name='ie11']" hx-target="#results" hx-indicator="#indicator")
-          label.form-check-label(for='chkIE11')
-            | IE 11 Compatible
-
+  include _clear-button
+  include _filter
+  
 
   include _loader
   table.table.table-striped

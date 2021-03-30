@@ -23,7 +23,8 @@ module.exports = [
     dependencyFree: false,
     ie11: false,
     nocompilation: false,
-    cdn: false
+    cdn: false,
+    frameworks: ['RAILS']
   },
   {
     id: 'liveview',
@@ -50,7 +51,8 @@ module.exports = [
     dependencyFree: false,
     ie11: false,
     nocompilation: false,
-    cdn: false
+    cdn: false,
+    frameworks: ['Phoenix']
   },
   {
     id: 'livewire',
@@ -76,7 +78,8 @@ module.exports = [
     dependencyFree: false,
     ie11: false,
     nocompilation: false,
-    cdn: false
+    cdn: false,
+    frameworks: ['Laravel']
   },
   {
     id: 'sockpuppet',
@@ -102,7 +105,8 @@ We extend the capabilities of both Django and Stimulus by intercepting user inte
     dependencyFree: false,
     ie11: false,
     nocompilation: false,
-    cdn: false
+    cdn: false,
+    frameworks: ['Django']
   },
   {
     id: 'htmx',
@@ -130,7 +134,8 @@ htmx is small (~10k min.gz'd), dependency-free, extendable & IE11 compatible
     dependencyFree: true,
     ie11: true,
     nocompilation: true,
-    cdn: true
+    cdn: true,
+    frameworks: ['all','Django', 'RAILS','Phoenix', 'Laravel', 'Node']
   },
   {
     id: 'unpoly',
@@ -157,6 +162,33 @@ It has no dependencies and plays nice with existing code.`,
     dependencyFree: true,
     ie11: false,
     nocompilation: true,
-    cdn: true
+    cdn: true,
+    frameworks: ['all','Django', 'RAILS','Phoenix', 'Laravel', 'Node']
   },
+  {
+    id: 'reactor',
+    name: 'Reactor',
+    description: `
+    Reactor enables you to do something similar to Phoenix framework LiveView using Django Channels.`,
+    website: 'https://github.com/edelvalle/reactor',
+    github: {
+      stars: 266,
+      forks: 8,
+      issues: 8,
+      url: 'https://github.com/edelvalle/reactor'
+    },
+    language: 'Python',
+    ajax: true,
+    history: true,
+    animation: true,
+    websockets: true,
+    sse: false,
+    agnostic: false,
+    extendable: false,
+    dependencyFree: false,
+    ie11: false,
+    nocompilation: false,
+    cdn: false,
+    frameworks: ['Django']
+  }
 ];
