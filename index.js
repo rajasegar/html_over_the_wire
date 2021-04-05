@@ -1,8 +1,11 @@
 const express = require('express');
-const data = require('./data/libs');
+const libs = require('./data/libs');
 const filters = require('./data/filters');
 const bodyParser = require('body-parser');
 const pug = require('pug');
+require('dotenv').config();
+const { Octokit } = require('@octokit/rest');
+const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 const PORT = process.env.PORT || 3000;
 
@@ -11,16 +14,51 @@ const app = express();
 app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true }));
+app.use(express.static('assets'));
 
 app.get('/', (req, res) => {
-  res.render('index', { data, filters });
+  res.render('index', { data: libs, filters });
 });
 
-app.get('/compare', (req, res) => {
+function getOwnerRepo(url) {
+  return url
+    .replace('https://github.com/','')
+    .split('/');
+}
+
+function updateGithubInfo(src, dest) {
+  src.github.stars = dest.data.stargazers_count;
+  src.github.issues = dest.data.open_issues_count;
+  src.github.forks = dest.data.forks_count;
+}
+
+app.get('/compare', async (req, res) => {
   const { lib1, lib2 } = req.query;
-  const left = data.find(d => d.id === lib1);
-  const right = data.find(d => d.id === lib2);
-  res.render('compare', { left, right });
+  const left = libs.find(d => d.id === lib1);
+  const right = libs.find(d => d.id === lib2);
+
+  const [lOwner, lRepo] = getOwnerRepo(left.github.url);
+  const [rOwner, rRepo] = getOwnerRepo(right.github.url);
+  try {
+    const leftRepo = await octokit.rest.repos.get({
+      owner: lOwner,
+      repo: lRepo,
+    });
+
+    updateGithubInfo(left, leftRepo);
+
+    const rightRepo = await octokit.rest.repos.get({
+      owner: rOwner,
+      repo: rRepo,
+    });
+
+    updateGithubInfo(right, rightRepo);
+
+    res.render('compare', { left, right });
+  } catch(err) {
+    console.log(err);
+    res.send('<p class="text-danger">Github info not found.</p>');
+  }
 });
 
 function filterBy(attr, value, data) {
@@ -49,7 +87,7 @@ app.post('/filter', (req, res) => {
     animation
   } = req.body;
 
-  let filteredData = data;
+  let filteredData = libs;
 
   if(frameworks && frameworks !== 'none') {
     filteredData = filteredData.filter(f => f.frameworks.includes(frameworks));
@@ -75,16 +113,49 @@ app.post('/filter', (req, res) => {
 
 app.get('/details/:id', (req, res) => {
   const { id } = req.params;
-  const lib = data.find(d => d.id === id);
-  const others = data.filter(d => d.id !== id).map(d => {
+  const lib = libs.find(d => d.id === id);
+  const others = libs.filter(d => d.id !== id).map(d => {
     return {
       id: d.id,
       name: d.name
     };
   });
-  res.render('detail-page', { data: lib, others });
+  const [owner, repo] = lib.github.url
+    .replace('https://github.com/','')
+    .split('/');
+  res.render('detail-page', { data: lib, others, owner, repo });
 });
 
+app.get('/github', async (req, res) => {
+  const { owner, repo, libId } = req.query;
+  try {
+    const repoInfo = await octokit.rest.repos.get({
+      owner,
+      repo,
+      path: '',
+    });
+
+    const githubInfo = {
+      github: {
+        stars: repoInfo.data.stargazers_count,
+        issues: repoInfo.data.forks_count,
+        forks: repoInfo.data.open_issues_count 
+      }
+    };
+
+    const template = pug.compileFile('views/_github-info.pug');
+    const markup = template({ data: githubInfo });
+    res.send(markup);
+  } catch(err) {
+    console.log(err);
+    res.send('<p class="text-danger">Github info not found.</p>');
+  }
+});
+
+
+app.get('/timeline', (req, res) => {
+  res.render('timeline', { libs });
+});
 
 
 app.listen(PORT);

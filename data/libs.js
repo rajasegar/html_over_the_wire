@@ -7,9 +7,9 @@ module.exports = [
     `,
     website: 'https://hotwire.dev',
     github: {
-      stars: 652,
-      forks: 10,
-      issues: 11,
+      stars: 0,
+      forks: 0,
+      issues: 0,
       url: 'https://github.com/hotwired/hotwire-rails'
     },
     language: 'Ruby',
@@ -25,7 +25,8 @@ module.exports = [
     nocompilation: false,
     cdn: false,
     frameworks: ['RAILS'],
-    features:[ ]
+    features:[ ],
+    releasedIn: 'Dec 2020'
   },
   {
     id: 'liveview',
@@ -36,9 +37,9 @@ module.exports = [
     `,
     website: 'https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html',
     github: {
-      stars: 3723,
-      forks: 446,
-      issues: 21,
+      stars: 0,
+      forks: 0,
+      issues: 0,
       url: 'https://github.com/phoenixframework/phoenix_live_view'
     },
     language: 'Elixir',
@@ -54,7 +55,8 @@ module.exports = [
     nocompilation: false,
     cdn: false,
     frameworks: ['Phoenix'],
-    features: []
+    features: [],
+    releasedIn: 'Oct 2018'
   },
   {
     id: 'livewire',
@@ -64,9 +66,9 @@ module.exports = [
     `,
     website: 'https://laravel-livewire.com/',
     github: {
-      stars: '10.5k',
-      forks: 608,
-      issues: 107,
+      stars: 0,
+      forks: 0,
+      issues: 0,
       url: 'https://github.com/livewire/livewire'
     },
     language: 'PHP',
@@ -82,7 +84,8 @@ module.exports = [
     nocompilation: false,
     cdn: false,
     frameworks: ['Laravel'],
-    features: []
+    features: [],
+    releasedIn: 'Jan 2019'
   },
   {
     id: 'sockpuppet',
@@ -92,9 +95,9 @@ module.exports = [
 We extend the capabilities of both Django and Stimulus by intercepting user interactions and passing them to Django over real-time websockets. These interactions are processed by Reflex actions that change application state. The current page is quickly re-rendered and the changes are sent to the client. The page is then morphed to reflect the new application state. This entire round-trip allows us to update the UI in 20-30ms without flicker or expensive page loads`,
     website: 'https://sockpuppet.argpar.se/',
     github: {
-      stars: 230,
-      forks: 16,
-      issues: 17,
+      stars: 0,
+      forks: 0,
+      issues: 0,
       url: 'https://github.com/jonathan-s/django-sockpuppet'
     },
     language: 'Python',
@@ -115,7 +118,8 @@ We extend the capabilities of both Django and Stimulus by intercepting user inte
       'Increase developer happiness ❤️❤️❤️',
       'Facilitate simple, concise, and clear code 🤸',
       'Integrate seamlessly with Django 🚝'
-    ]
+    ],
+    releasedIn: 'Aug 2019'
   },
   {
     id: 'htmx',
@@ -127,9 +131,9 @@ htmx is small (~10k min.gz'd), dependency-free, extendable & IE11 compatible
     `,
     website: 'https://htmx.org/',
     github: {
-      stars: 3274,
-      forks: 113,
-      issues: 53,
+      stars: 0,
+      forks: 0,
+      issues: 0,
       url: 'https://github.com/bigskysoftware/htmx/'
     },
     language: 'Javascript',
@@ -151,7 +155,8 @@ htmx is small (~10k min.gz'd), dependency-free, extendable & IE11 compatible
       'Any element, not just anchors and forms, can issue an HTTP request',
       'Any event, not just clicks or form submissions, can trigger requests',
       'Any element, not just the entire window, can be the target for update by the request'
-    ]
+    ],
+    releasedIn: 'Apr 2020'
   },
   {
     id: 'unpoly',
@@ -162,9 +167,9 @@ for server-side web applications
 Unpoly enables fast and flexible frontends while keeping rendering logic on the server.
 It has no dependencies and plays nice with existing code.`,
     github: {
-      stars: 768,
-      forks: 33,
-      issues: 20,
+      stars: 0,
+      forks: 0,
+      issues: 0,
       url: 'https://github.com/unpoly/unpoly'
     },
     language: 'CoffeeScript',
@@ -191,7 +196,8 @@ It has no dependencies and plays nice with existing code.`,
       'Extensible: Build your own components using Unpoly\'s extensive Javascript API and event model.',
       'Degrades gracefully: Unpoly supports all modern browsers. On old IEs features are disabled gracefully.'
 
-    ]
+    ],
+    releasedIn: 'Dec 2014'
   },
   {
     id: 'reactor',
@@ -200,9 +206,9 @@ It has no dependencies and plays nice with existing code.`,
     Reactor enables you to do something similar to Phoenix framework LiveView using Django Channels.`,
     website: 'https://github.com/edelvalle/reactor',
     github: {
-      stars: 266,
-      forks: 8,
-      issues: 8,
+      stars: 0,
+      forks: 0,
+      issues: 0,
       url: 'https://github.com/edelvalle/reactor'
     },
     language: 'Python',
@@ -218,6 +224,7 @@ It has no dependencies and plays nice with existing code.`,
     nocompilation: false,
     cdn: false,
     frameworks: ['Django'],
-    features: []
+    features: [],
+    releasedIn: 'Apr 2019'
   }
 ];

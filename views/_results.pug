@@ -3,8 +3,8 @@ each lib in data
   tr
     td 
       a(href=lib.website, target="_blank") #{lib.name}
-    td #{lib.github.stars}
-    td #{lib.github.forks}
+    //-td #{lib.github.stars}
+    //-td #{lib.github.forks}
     td #{lib.language}
     td 
       +yesno(lib.ajax)
