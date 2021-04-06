@@ -26,7 +26,8 @@ module.exports = [
     cdn: false,
     frameworks: ['RAILS'],
     features:[ ],
-    releasedIn: 'Dec 2020'
+    releasedIn: 'Dec 2020',
+    summary: `Hotwire is an alternative approach to building modern web applications without using much JavaScript by sending HTML instead of JSON over the wire.`
   },
   {
     id: 'liveview',
@@ -56,7 +57,8 @@ module.exports = [
     cdn: false,
     frameworks: ['Phoenix'],
     features: [],
-    releasedIn: 'Oct 2018'
+    releasedIn: 'Oct 2018',
+    summary: 'Phoenix LiveView enables rich, real-time user experiences with server-rendered HTML.'
   },
   {
     id: 'livewire',
@@ -85,7 +87,8 @@ module.exports = [
     cdn: false,
     frameworks: ['Laravel'],
     features: [],
-    releasedIn: 'Jan 2019'
+    releasedIn: 'Jan 2019',
+    summary: 'Livewire is a full-stack framework for Laravel that makes building dynamic interfaces simple, without leaving the comfort of Laravel.'
   },
   {
     id: 'sockpuppet',
@@ -119,7 +122,8 @@ We extend the capabilities of both Django and Stimulus by intercepting user inte
       'Facilitate simple, concise, and clear code 🤸',
       'Integrate seamlessly with Django 🚝'
     ],
-    releasedIn: 'Aug 2019'
+    releasedIn: 'Aug 2019',
+    summary: 'Sockpuppet is a new way to craft modern, reactive web interfaces with Django.'
   },
   {
     id: 'htmx',
@@ -156,7 +160,8 @@ htmx is small (~10k min.gz'd), dependency-free, extendable & IE11 compatible
       'Any event, not just clicks or form submissions, can trigger requests',
       'Any element, not just the entire window, can be the target for update by the request'
     ],
-    releasedIn: 'Apr 2020'
+    releasedIn: 'Apr 2020',
+    summary: 'High power tools for html'
   },
   {
     id: 'unpoly',
@@ -197,7 +202,8 @@ It has no dependencies and plays nice with existing code.`,
       'Degrades gracefully: Unpoly supports all modern browsers. On old IEs features are disabled gracefully.'
 
     ],
-    releasedIn: 'Dec 2014'
+    releasedIn: 'Dec 2014',
+    summary: 'The unobtrusive JavaScript framework for server-side web applications'
   },
   {
     id: 'reactor',
@@ -225,6 +231,7 @@ It has no dependencies and plays nice with existing code.`,
     cdn: false,
     frameworks: ['Django'],
     features: [],
-    releasedIn: 'Apr 2019'
+    releasedIn: 'Apr 2019',
+    summary: `Reactor enables you to do something similar to Phoenix framework LiveView using Django Channels.`
   }
 ];
