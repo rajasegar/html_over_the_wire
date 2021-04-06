@@ -154,7 +154,13 @@ app.get('/github', async (req, res) => {
 
 
 app.get('/timeline', (req, res) => {
-  res.render('timeline', { libs });
+  const timeline = libs.sort((a,b) => new Date(b.releasedIn) - new Date(a.releasedIn));
+  res.render('timeline', { libs: timeline });
+});
+
+
+app.get('/add-framework', (req,res) => {
+  res.render('add-framework');
 });
 
 

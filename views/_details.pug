@@ -1,5 +1,5 @@
 include _mixins
-.d-flex.justify-content-between.mt-3
+.d-flex.justify-content-between
   h1 #{data.name}
   .d-flex(hx-get="/github?owner=" + owner + "&repo=" + repo + "&libId=" + data.id, hx-trigger="load", hx-indicator="#indicator")
     include _github-info
