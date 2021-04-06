@@ -155,9 +155,23 @@ app.get('/github', async (req, res) => {
 
 app.get('/timeline', (req, res) => {
   const timeline = libs.sort((a,b) => new Date(b.releasedIn) - new Date(a.releasedIn));
-  res.render('timeline', { libs: timeline });
+  res.render('timeline', { libs: timeline, dir: 'reverse' });
 });
 
+
+app.get('/reverse-timeline', (req, res) => {
+  const sortFn = (a,b) => new Date(b.releasedIn) - new Date(a.releasedIn);
+  const reverseSortFn = (a,b) => new Date(a.releasedIn) - new Date(b.releasedIn);
+  const { dir } = req.query;
+  const reverseDir = dir === 'normal' ? 'reverse' : 'normal';
+
+  const timeline = dir === 'reverse' ? libs.sort(reverseSortFn) : libs.sort(sortFn);
+  let template = pug.compileFile('views/_reverse-btn.pug');
+  let markup = template({ dir: reverseDir });
+  template = pug.compileFile('views/_timeline.pug');
+   markup += template({ libs: timeline });
+  res.send(markup);
+});
 
 app.get('/add-framework', (req,res) => {
   res.render('add-framework');

@@ -1,15 +1,11 @@
 extends layout
 include _mixins
 block body
-  h2.mt-4.mb-3 Timeline of different frameworks
-
-  ul.timeline
-    each lib,index in libs
-      li
-        div(class=index % 2 === 0 ? 'direction-r' : 'direction-l')
-          .flag-wrapper
-            span.flag
-              a(target='_blank' href=lib.github.url) #{lib.name}
-            span.time-wrapper.svelte-1dx5vin
-              span.time.svelte-1dx5vin #{lib.releasedIn}
-          .desc.svelte-1dx5vin #{lib.description}
+  .d-flex.justify-content-between
+    h3.mt-4.mb-3 Timeline of different frameworks
+    .mt-4
+      include _reverse-btn
+        
+  include _loader
+  ul#timeline.timeline
+    include _timeline
