@@ -6,6 +6,7 @@ const pug = require('pug');
 require('dotenv').config();
 const { Octokit } = require('@octokit/rest');
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+const compression = require('compression');
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,6 +16,7 @@ app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true }));
 app.use(express.static('assets'));
+app.use(compression());
 
 app.get('/', (req, res) => {
   res.render('index', { data: libs, filters });
