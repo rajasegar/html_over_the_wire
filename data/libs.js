@@ -1,7 +1,7 @@
 module.exports = [
   {
     id: 'hotwire',
-    name: 'Hotwire',
+    name: 'Hotwire Turbo',
     description: `
     Hotwire is an alternative approach to building modern web applications without using much JavaScript by sending HTML instead of JSON over the wire. This makes for fast first-load pages, keeps template rendering on the server, and allows for a simpler, more productive development experience in any programming language, without sacrificing any of the speed or responsiveness associated with a traditional single-page application.
     `,
@@ -10,21 +10,21 @@ module.exports = [
       stars: 0,
       forks: 0,
       issues: 0,
-      url: 'https://github.com/hotwired/hotwire-rails'
+      url: 'https://github.com/hotwired/turbo'
     },
-    language: 'Ruby',
+    language: 'TypeScript',
     ajax: true,
     history: true,
     animation: true,
     websockets: true,
     sse: true ,
-    agnostic: false,
+    agnostic: true,
     extendable: false,
-    dependencyFree: false,
+    dependencyFree: true,
     ie11: false,
-    nocompilation: false,
+    nocompilation: true,
     cdn: false,
-    frameworks: ['RAILS'],
+    frameworks: ['all','Django','Laravel','RAILS','Symfony'],
     features:[ ],
     releasedIn: 'Dec 2020',
     summary: `Hotwire is an alternative approach to building modern web applications without using much JavaScript by sending HTML instead of JSON over the wire.`
